@@ -1,0 +1,182 @@
+/* General Body Styling */
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(rgb(241, 227, 33), rgb(69, 64, 69));
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navigation Logo and Title */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+h1 {
+    font-size: 24px;
+    color: white;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Chat Container */
+.container {
+    max-width: 80%; /* Make it cover more width on larger screens */
+    min-width: 600px; /* Ensure it doesn't get too small */
+    border: 2px solid black;
+    margin: 20px auto;
+    height: 65vh; /* Slightly taller to balance the wider design */
+    padding: 20px;
+    overflow-y: auto;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Message Styling */
+.message {
+    max-width: 75%;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    font-size: 16px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.right {
+    float: right;
+    clear: both;
+    background-color: rgb(237, 241, 9);
+    color: #000;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.left {
+    float: left;
+    clear: both;
+    background-color: aliceblue;
+    color: #333;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Message Input Section */
+#send-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px;
+    margin: 10px auto;
+}
+
+#messageInp {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 6px;
+    height: 40px;
+    font-size: 16px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(69, 64, 69);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: rgb(50, 45, 50);
+}
+
+.center-message {
+    text-align: center;      
+    width: 30%;            
+    margin: 10px 0;          
+    font-size: 10px;         
+    color: white;            
+    border-radius: 10px;     
+}
+
+.join {
+    background-color: green; 
+}
+
+
+.leave {
+    background-color: red;   /* Red for leave */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        height: 50vh;
+        padding: 15px;
+    }
+
+    .message {
+        max-width: 90%;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    #send-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #messageInp {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        height: 40vh;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    .message {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    #messageInp {
+        font-size: 14px;
+        height: 36px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
