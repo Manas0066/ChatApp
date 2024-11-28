@@ -1,4 +1,4 @@
-const socket = io('https://chat-gxoqi71cg-manas0066s-projects.vercel.app/');
+const socket = io('https://chatapp-jtv9.onrender.com');
 
 const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messageInp');

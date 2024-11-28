@@ -1,27 +1,12 @@
 //node server which will handel socket connections
-const express = require("express");
-const cors = require("cors");
-const http = require("http");
-const WebSocket = require("ws");
+const PORT = process.env.PORT || 8000;
+const io = require('socket.io')(PORT, {
+    cors: {
+        origin: "*",
+        methods: ["GET", "POST"]
+    }
+});
 
-// Create an Express app
-const app = express();
-
-// Allow CORS for frontend access
-app.use(
-    cors({
-        origin: ["http://localhost:8080", "https://chat-application-web-frontend.vercel.app/"],
-    })
-);
-
-// Serve static files for frontend (if needed)
-app.use(express.static(__dirname));
-
-// Create an HTTP server and pass it to the WebSocket server
-const server = http.createServer(app);
-
-// Set up the WebSocket server
-const wss = new WebSocket.Server({ server });
 const users = {};
 
 io.on('connection',socket=>{
