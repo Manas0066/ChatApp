@@ -1,4 +1,4 @@
-const socket = io('https://chatapp-jtv9.onrender.com');
+const socket = io('https://chatapp-jtv9.onrender.com'); // Use your actual deployed server URL
 
 const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messageInp');
@@ -10,6 +10,7 @@ var audio = new Audio('tingmp3.mp3');
 // Disable the submit button initially
 submitButton.disabled = true;
 
+// Function to append messages to the chat container
 const append = (message, position, isJoinOrLeave) => {
   const messageElement = document.createElement('div');
   messageElement.innerText = message;
@@ -45,41 +46,45 @@ const append = (message, position, isJoinOrLeave) => {
   }
 };
 
+// Handle message form submission
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const message = messageInput.value;
   if (message.trim() === '') {
     return; // Prevent form submission if message is empty
   }
-  append(`you: ${message}`, 'right');
-  socket.emit('send', message);
-  messageInput.value = '';
+  append(`you: ${message}`, 'right'); // Show user's message on the right
+  socket.emit('send', message); // Send the message to the server
+  messageInput.value = ''; // Clear the input field
   submitButton.disabled = true; // Disable submit button again after sending the message
 });
 
+// Enable submit button if the input is not empty
 messageInput.addEventListener('input', () => {
-  // Enable submit button if the input is not empty
   if (messageInput.value.trim() !== '') {
     submitButton.disabled = false;
   } else {
     submitButton.disabled = true; // Disable submit button if the input is empty
   }
 });
-console.log("entereed");
+
 // Get user's name
 const name = prompt("Enter your name");
 
-console.log("entereddd");
+// Emit event for new user joining
 socket.emit('new-user-joined', name);
 
+// Event listener for when a user joins
 socket.on('user-joined', (name) => {
   append(`${name} joined the chat`, 'right', 'join');
 });
 
+// Event listener for receiving messages
 socket.on('receive', (data) => {
   append(`${data.name}: ${data.message}`, 'left');
 });
 
+// Event listener for when a user leaves
 socket.on('leave', (name) => {
   append(`${name} left the chat`, 'left', 'leave');
 });
