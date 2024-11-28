@@ -5,12 +5,12 @@ A simple real-time chat application built with Socket.IO, where users can exchan
 *Requirements*
 ---------------
 Node.js: Ensure Node.js is installed on your machine.
-Socket.IO: Real-time communication library.
+Web-Socket: Real-time communication.
 
 *Architecture*
 --------------
 Client: Built using HTML, CSS, and JavaScript. The client sends messages and listens for incoming messages in real-time via Socket.IO.
-Server: Node.js server using Socket.IO to handle WebSocket connections and broadcast messages to all connected clients.
+Server: Node.js server using Socket to handle WebSocket connections and broadcast messages to all connected clients.
 
 
 *Instructions to Run*
@@ -33,6 +33,7 @@ http://localhost:8000
 
 *deployment link*
 https://chat-app-manas0066-manas0066s-projects.vercel.app/
+
 
 You’ll be prompted to enter your name and join the chat.
 
