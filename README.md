@@ -29,6 +29,11 @@ The server will start on localhost:8000.
 4. Open the Client
 Open your browser and go to:
 http://localhost:8000
+
+
+*deployment link*
+https://chat-app-manas0066-manas0066s-projects.vercel.app/
+
 You’ll be prompted to enter your name and join the chat.
 
 Assumptions and Design Choices
